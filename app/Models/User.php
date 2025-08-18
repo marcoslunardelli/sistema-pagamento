@@ -10,6 +10,9 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
+    protected $fillable = ['name','email','cpf_cnpj','type','balance','password'];
+    protected $hidden = ['password'];
+
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
@@ -41,4 +44,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function sentTransactions() { return $this->hasMany(Transaction::class, 'sender_id'); }
+    public function receivedTransactions() { return $this->hasMany(Transaction::class, 'receiver_id'); }
 }
