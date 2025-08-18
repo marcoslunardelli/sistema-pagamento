@@ -13,8 +13,6 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\User::truncate();
-
         \App\Models\User::create([
             'name' => 'Cliente A',
             'email' => 'clienteA@example.com',
