@@ -228,33 +228,42 @@ docker compose exec app bash -lc "tail -n 100 storage/logs/laravel.log"
 
 ## 🗂️ Estrutura relevante
 
+---
+
 app/
-Http/
-Controllers/Api/
-PaymentController.php
-UsersController.php
-Requests/
-UserStoreRequest.php
-DepositRequest.php
-WithdrawRequest.php
-TransferRequest.php
-Models/
-User.php
-Transaction.php
-Services/
-PaymentService.php
+├── Http/
+│ ├── Controllers/Api/
+│ │ ├── PaymentController.php
+│ │ └── UsersController.php
+│ ├── Requests/
+│ │ ├── UserStoreRequest.php
+│ │ ├── DepositRequest.php
+│ │ ├── WithdrawRequest.php
+│ │ └── TransferRequest.php
+│
+├── Models/
+│ ├── User.php
+│ └── Transaction.php
+│
+├── Services/
+│ └── PaymentService.php
+│
 database/
-migrations/
-2014_10_12_000000_create_users_table.php
-2025_08_18_005127_create_transactions_table.php
-seeders/
-DatabaseSeeder.php
-UserSeeder.php
+├── migrations/
+│ ├── 2014_10_12_000000_create_users_table.php
+│ └── 2025_08_18_005127_create_transactions_table.php
+├── seeders/
+│ ├── DatabaseSeeder.php
+│ └── UserSeeder.php
+│
 routes/
-api.php
-Dockerfile
-docker-compose.yml
+└── api.php
+
+Dockerfile  
+docker-compose.yml  
 nginx.conf
+
+---
 
 ---
 
