@@ -226,44 +226,95 @@ docker compose exec app bash -lc "tail -n 100 storage/logs/laravel.log"
 
 ---
 
-## 🗂️ Estrutura relevante
+# 🗂️ Estrutura de Arquivos do Projeto
 
----
+## Estrutura Relevante
 
+```
 app/
 ├── Http/
-│ ├── Controllers/Api/
-│ │ ├── PaymentController.php
-│ │ └── UsersController.php
-│ ├── Requests/
-│ │ ├── UserStoreRequest.php
-│ │ ├── DepositRequest.php
-│ │ ├── WithdrawRequest.php
-│ │ └── TransferRequest.php
+│   ├── Controllers/Api/
+│   │   ├── PaymentController.php
+│   │   └── UsersController.php
+│   ├── Requests/
+│   │   ├── UserStoreRequest.php
+│   │   ├── DepositRequest.php
+│   │   ├── WithdrawRequest.php
+│   │   └── TransferRequest.php
 │
 ├── Models/
-│ ├── User.php
-│ └── Transaction.php
+│   ├── User.php
+│   └── Transaction.php
 │
 ├── Services/
-│ └── PaymentService.php
+│   └── PaymentService.php
 │
 database/
 ├── migrations/
-│ ├── 2014_10_12_000000_create_users_table.php
-│ └── 2025_08_18_005127_create_transactions_table.php
+│   ├── 2014_10_12_000000_create_users_table.php
+│   └── 2025_08_18_005127_create_transactions_table.php
 ├── seeders/
-│ ├── DatabaseSeeder.php
-│ └── UserSeeder.php
+│   ├── DatabaseSeeder.php
+│   └── UserSeeder.php
 │
 routes/
 └── api.php
 
-Dockerfile  
-docker-compose.yml  
+Dockerfile
+docker-compose.yml
 nginx.conf
+```
 
----
+## Descrição dos Diretórios
+
+### `app/`
+
+Diretório principal da aplicação Laravel contendo toda a lógica de negócio.
+
+#### `Http/Controllers/Api/`
+
+-   **PaymentController.php** - Controlador responsável pelas operações de pagamento
+-   **UsersController.php** - Controlador para gerenciamento de usuários
+
+#### `Http/Requests/`
+
+-   **UserStoreRequest.php** - Validação para criação de usuários
+-   **DepositRequest.php** - Validação para operações de depósito
+-   **WithdrawRequest.php** - Validação para operações de saque
+-   **TransferRequest.php** - Validação para operações de transferência
+
+#### `Models/`
+
+-   **User.php** - Model do usuário
+-   **Transaction.php** - Model das transações
+
+#### `Services/`
+
+-   **PaymentService.php** - Serviço contendo a lógica de negócio para pagamentos
+
+### `database/`
+
+Contém as migrações e seeders do banco de dados.
+
+#### `migrations/`
+
+-   **create_users_table.php** - Migração para criação da tabela de usuários
+-   **create_transactions_table.php** - Migração para criação da tabela de transações
+
+#### `seeders/`
+
+-   **DatabaseSeeder.php** - Seeder principal
+-   **UserSeeder.php** - Seeder para população da tabela de usuários
+
+### `routes/`
+
+-   **api.php** - Definição das rotas da API
+
+### Arquivos de Configuração
+
+-   **Dockerfile** - Configuração do container Docker
+-   **docker-compose.yml** - Orquestração dos containers
+-   **nginx.conf** - Configuração do servidor web Nginx
 
 ---
 
